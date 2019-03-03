@@ -3,7 +3,7 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMa
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, MessageHandler, Filters
 import time
 
-texts = '''Grüße Dich $s,  
+texts = '''Grüße Dich %s,  
  
 herzlich Willkommen bei der Gemeinschaft "Chemtrailfreier Himmel - Holen wir uns den sauberen Himmel zurück!" hier auf Telegram. https://t.me/chemtrailfreier_himmel  
  
