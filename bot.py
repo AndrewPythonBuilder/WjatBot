@@ -3,6 +3,11 @@ from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMa
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, MessageHandler, Filters
 import time
 
+def delete_m(bot, info):
+    time.sleep(90)
+    bot.delete_message(info.chat_id, info.message_id)
+    bot.delete_message(info.chat_id, info.message_id + 1)
+
 texts = '''Grüße Dich %s,  
  
 herzlich Willkommen bei der Gemeinschaft "Chemtrailfreier Himmel - Holen wir uns den sauberen Himmel zurück!" hier auf Telegram. https://t.me/chemtrailfreier_himmel  
@@ -23,15 +28,13 @@ updater = Updater(token='704412135:AAGJXWDDZ5PxlS1Tx4nUTGjNb2671-RT9nQ')
 dispatcher = updater.dispatcher
 def start(bot, update):
     message = update.message
+    print(message)
     if update.message.new_chat_members != []:
-        M_I = message.message_id
         button = [[InlineKeyboardButton('Hierher klicken', url = 'https://telegra.ph/Gruppenregeln-für-die-Chemtrailfreier-Himmel-Telegram-Gruppe-03-03')]]
         keyboard = InlineKeyboardMarkup(button)
         bot.send_message(message.chat.id,texts %(message.from_user.first_name),reply_markup=keyboard)
-        time.sleep(90)
-        bot.delete_message(message.chat_id, M_I)
-        bot.delete_message(message.chat_id, M_I + 1)
-    elif update.message.left_chat_member != []:
+        delete_m(bot, message)
+    elif (update.message.left_chat_member != []) and ((message.text == None) or message.text == ''):
         time.sleep(20)
         M_I = message.message_id
         bot.delete_message(message.chat_id, M_I)
