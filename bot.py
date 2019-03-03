@@ -24,7 +24,7 @@ Klicke auf den unteren Knopf „Hierher klicken“ und mache Dich mit den Gruppe
 
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-updater = Updater(token='704412135:AAGJXWDDZ5PxlS1Tx4nUTGjNb2671-RT9nQ')
+updater = Updater(token='762793703:AAGAW4kqG4o7Se2Khor7ZxDkilCtSBEVnWY')
 dispatcher = updater.dispatcher
 def start(bot, update):
     message = update.message
